@@ -42,7 +42,18 @@
 #
 # Copyright 2017 steroidg.
 #
-class snd ()  inherits snd::params {
-
-
+# An example class.
+#
+# This is an example of how to document a Puppet class
+#
+# @summary Module to search a string within a file. If found, either display summary a message, or remove it.
+#
+# @example Declaring the class
+#   include snd
+#
+# @param search_items List of search items
+class snd (
+  Hash $search_items = $snd::params::search_items
+)  inherits snd::params {
+  create_resources(snd::search_and_destroy, $search_items)
 }
