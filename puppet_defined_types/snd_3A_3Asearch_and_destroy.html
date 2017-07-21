@@ -145,7 +145,11 @@
 21
 22
 23
-24</pre>
+24
+25
+26
+27
+28</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/search_and_destroy.pp', line 5</span>
@@ -155,18 +159,22 @@ define snd::search_and_destroy (
   String  $search_str,
   Boolean $display_only = true,
 ) {
-  if $::snd::params::display_only == true {
-    $snd_cmd = &quot;echo ${filename}&quot;
+
+  #  notify { &quot;${name} ${search_str}&quot;: }
+  #  notify { &quot;${name} ${display_only}&quot;: }
+
+  if $display_only == true {
+    $snd_cmd = &quot;echo ${file_name}&quot;
   } else {
     $snd_cmd = &quot;rm ${file_name}&quot;
   }
 
   # Remove file if duplicate found.
   exec {
-    &quot;snd ${filename}&quot;:
+    &quot;snd ${file_name}&quot;:
       command =&gt; $snd_cmd,
       path    =&gt; &#39;/bin:/sbin:/usr/bin:/usr/sbin&#39;,
-      onlyif  =&gt; &quot;[ -s ${file_name} ] &amp;&amp; sed s/\&lt;*.duid\&gt;//g ${file_name} | grep ${duid}&quot;,
+      onlyif  =&gt; &quot;[ -s ${file_name} ] &amp;&amp; grep \&quot;${search_str}\$\&quot; ${file_name}&quot;,
   }
 
 }</pre>
@@ -177,7 +185,7 @@ define snd::search_and_destroy (
 </div>
 
       <div id="footer">
-  Generated on Thu Jul 20 13:51:33 2017 by
+  Generated on Sat Jul 22 00:07:17 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>
