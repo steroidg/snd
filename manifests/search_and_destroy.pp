@@ -19,7 +19,7 @@ define snd::search_and_destroy (
 
   # Remove file if duplicate found.
   exec {
-    "snd ${filename}":
+    "snd ${file_name}":
       command => $snd_cmd,
       path    => '/bin:/sbin:/usr/bin:/usr/sbin',
       onlyif  => "[ -s ${file_name} ] && grep \"${search_str}\$\" ${file_name}",
