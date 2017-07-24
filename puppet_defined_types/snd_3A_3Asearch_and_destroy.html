@@ -174,7 +174,7 @@ define snd::search_and_destroy (
     &quot;snd ${file_name}&quot;:
       command =&gt; $snd_cmd,
       path    =&gt; &#39;/bin:/sbin:/usr/bin:/usr/sbin&#39;,
-      onlyif  =&gt; &quot;[ -s ${file_name} ] &amp;&amp; grep \&quot;${search_str}\$\&quot; ${file_name}&quot;,
+      onlyif  =&gt; &quot;[ -s ${file_name} ] &amp;&amp; grep \&quot;${search_str}\&quot; ${file_name}&quot;,
   }
 
 }</pre>
@@ -185,7 +185,7 @@ define snd::search_and_destroy (
 </div>
 
       <div id="footer">
-  Generated on Sat Jul 22 00:07:17 2017 by
+  Generated on Mon Jul 24 10:16:10 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>
