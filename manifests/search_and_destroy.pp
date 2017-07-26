@@ -8,21 +8,18 @@ define snd::search_and_destroy (
   Boolean $display_only = true,
 ) {
 
-  #  notify { "${name} ${search_str}": }
-  #  notify { "${name} ${display_only}": }
-
   if $display_only == true {
     $snd_cmd = "echo ${file_name}"
   } else {
     $snd_cmd = "rm ${file_name}"
   }
 
-  # Remove file if duplicate found.
+  # Remove file if string found.
   exec {
     "snd ${file_name}":
       command => $snd_cmd,
       path    => '/bin:/sbin:/usr/bin:/usr/sbin',
-      onlyif  => "[ -s ${file_name} ] && grep \"${search_str}\$\" ${file_name}",
+      onlyif  => "[ -s ${file_name} ] && grep \"${search_str}\" ${file_name}",
   }
 
 }
