@@ -146,10 +146,7 @@
 22
 23
 24
-25
-26
-27
-28</pre>
+25</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/search_and_destroy.pp', line 5</span>
@@ -160,16 +157,13 @@ define snd::search_and_destroy (
   Boolean $display_only = true,
 ) {
 
-  #  notify { &quot;${name} ${search_str}&quot;: }
-  #  notify { &quot;${name} ${display_only}&quot;: }
-
   if $display_only == true {
     $snd_cmd = &quot;echo ${file_name}&quot;
   } else {
     $snd_cmd = &quot;rm ${file_name}&quot;
   }
 
-  # Remove file if duplicate found.
+  # Remove file if string found.
   exec {
     &quot;snd ${file_name}&quot;:
       command =&gt; $snd_cmd,
@@ -185,7 +179,7 @@ define snd::search_and_destroy (
 </div>
 
       <div id="footer">
-  Generated on Tue Jul 25 23:24:09 2017 by
+  Generated on Wed Jul 26 21:25:49 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>
