@@ -3,8 +3,8 @@
 # @param notify_only Display notification only if found
 
 define snd::search_and_destroy (
-  String  $file_name = $name,
   String  $search_str,
+  String  $file_name = $name,
   Boolean $display_only = true,
 ) {
 

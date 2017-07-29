@@ -53,7 +53,14 @@
 #
 # @param search_items List of search items
 class snd (
-  Hash $search_items = $snd::params::search_items
-)  inherits snd::params {
-  create_resources(snd::search_and_destroy, $search_items)
+  Hash $search_items = {check => 'UNSET'}
+) {
+  include snd::params
+
+  $search_items_real = $search_items ? {
+    {check  => 'UNSET'} => $::snd::params::search_items,
+    default => $search_items,
+  }
+
+  create_resources(snd::search_and_destroy, $search_items_real)
 }
