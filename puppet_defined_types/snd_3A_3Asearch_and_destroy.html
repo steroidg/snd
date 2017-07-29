@@ -81,6 +81,17 @@
   
     <li>
       
+        <span class='name'>search_str</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>file_name</span>
       
       
@@ -88,17 +99,6 @@
       
       
         <em class="default">(defaults to: <tt>$name</tt>)</em>
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>search_str</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
       
       
     </li>
@@ -152,8 +152,8 @@
         <pre class="code"><span class="info file"># File 'manifests/search_and_destroy.pp', line 5</span>
 
 define snd::search_and_destroy (
-  String  $file_name = $name,
   String  $search_str,
+  String  $file_name = $name,
   Boolean $display_only = true,
 ) {
 
@@ -179,7 +179,7 @@ define snd::search_and_destroy (
 </div>
 
       <div id="footer">
-  Generated on Wed Jul 26 21:30:44 2017 by
+  Generated on Sat Jul 29 23:33:42 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>
