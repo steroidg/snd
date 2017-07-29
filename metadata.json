@@ -1,18 +1,20 @@
 {
   "name": "steroidg-snd",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "steroidg",
   "summary": "Module to search a string within a file. If found, either display a message, or remove it.",
   "license": "Apache-2.0",
   "source": "https://github.com/steroidg/snd",
   "project_page": "https://github.com/steroidg/snd",
   "issues_url": "https://github.com/steroidg/snd/issues",
-  "dependencies": [
+  "dependencies": [],
+	"operatingsystem_support": [
     {
-      "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 1.0.0"
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04"
+      ]
     }
-  ],
-  "data_provider": null
+  ]
 }
 

@@ -12,7 +12,7 @@
 
 $snd_test_file = '/tmp/I_sure_do_hope_you_dont_have_a_file_named_like_this'
 
-$search_items = { 
+$search_items = {
   $snd_test_file => {
     search_str   => '^then_im_sorry$',
     display_only =>  false,
@@ -21,14 +21,14 @@ $search_items = {
 
 file { $snd_test_file:
   ensure  => file,
-  content => "well_if_you_do
+  content => 'well_if_you_do
 then_im_sorry
 that_its_overwritten
-",
+',
 }
 
 class { 'snd':
-  search_items => $search_items, 
+  search_items => $search_items,
 }
 
 # Alternatively you can setup data in hiera and include the class
