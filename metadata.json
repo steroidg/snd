@@ -1,6 +1,6 @@
 {
   "name": "steroidg-snd",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "steroidg",
   "summary": "Module to search a string within a file. If found, either display a message, or remove it.",
   "license": "Apache-2.0",
